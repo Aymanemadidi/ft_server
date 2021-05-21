@@ -30,7 +30,7 @@ RUN tar -xvzf latest.tar.gz && rm -rf latest.tar.gz
 COPY ./srcs/wp-config.php /var/www/html
 
 # SSL
-RUN openssl req -x509 -nodes -days 365 -subj "/C=MA/ST=Morocco/L=Marrakech/O=benguerir/OU=1337/CN=ael-madi" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
+RUN openssl req -x509 -nodes -days 365 -subj "/C=MA/ST=Morocco/L=Agadir/O=Benguerir/OU=1337/CN=ael-madi" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
 RUN chown -R www-data:www-data *
 RUN chmod -R 755 /var/www/*
 
