@@ -10,8 +10,7 @@ RUN apt-get -y install nginx
 RUN apt-get -y install mariadb-server
 #install PHP
 RUN apt-get -y install php7.3 php-mysql php-fpm php-pdo php-gd php-cli php-mbstring
-
-#ARG AUTO
+ENV AUTOINDEX on
 
 #RUN if [ "$AUTO" = "off" ] ; then  ; else yarn client:build ; fi
 
@@ -43,6 +42,8 @@ RUN chown -R www-data:www-data *
 RUN chmod -R 755 /var/www/*
 
 RUN mv index.nginx-debian.html .index.html
+
+#RUN sh auto_off.sh
 
 COPY ./srcs/init.sh ./
 

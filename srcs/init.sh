@@ -8,6 +8,9 @@ echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTIO
 echo "FLUSH PRIVILEGES;"| mysql -u root --skip-password
 echo "update mysql.user set plugin='' where user='root';"| mysql -u root --skip-password
 
+if [ "$AUTOINDEX" = "off" ] ;
+    then sh auto_off.sh; fi
+    #else cp /tmp/server.conf /etc/nginx/sites-available/default ; fi
 #install wordpress
 # cd /tmp/
 # wget -c https://wordpress.org/latest.tar.gz
